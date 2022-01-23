@@ -11,10 +11,10 @@ pressGoal = easygui.enterbox('goal')
 if pressGoal is None:
     quit()
 else:
-    pressGoal = int(pressGoal)  # 转换非'None'的int
+    pressGoal = int(pressGoal)  # 转换非'None'的值
 
-mode = easygui.buttonbox('mode 1 = L + text, mode 2 = L only, mode 3 = text only, mode 4 = in game L + text, mode 5 = in game text',
-                         'AutoL v2 mode selection', ['1', '2', '3', 'exit'])
+mode = easygui.buttonbox('AutoL v2',
+                         'AutoL v2 mode selection', ['L + text', 'L', 'text', 'in game L + text', 'in game text', 'exit'])
 if mode == 'exit':
     quit()
 
@@ -29,22 +29,22 @@ prefix = 'L'
 time.sleep(5)
 
 # spammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-if mode == '1':
+if mode == 'L + text':
     for i in range(1, pressGoal):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
         keyboard.press(Key.enter)
         time.sleep(delay)
-if mode == '2':
+if mode == 'L':
     for i in range(1, pressGoal):
         keyboard.type(prefix)
         keyboard.press(Key.enter)
         time.sleep(delay)
-if mode == '3':
+if mode == 'text':
     for i in range(1, pressGoal):
         keyboard.type(linecache.getline(r'800.txt', random.randrange(1, 800)))
         keyboard.press(Key.enter)
         time.sleep(delay)
-if mode == '4':
+if mode == 'in game L + text':
     for i in range(1, pressGoal):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
         time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在49，51行之间不加delay就不管用
@@ -52,7 +52,7 @@ if mode == '4':
         time.sleep(delay)
         keyboard.type(inGameChatButton)
         time.sleep(delay)
-if mode == '5':
+if mode == 'in game text':
     for i in range(1, pressGoal):
         keyboard.type(linecache.getline(r'800.txt', random.randrange(1, 800)))
         time.sleep(delay)
