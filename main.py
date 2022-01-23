@@ -1,10 +1,8 @@
+from pynput.keyboard import Key, Controller
 import linecache  # read txt file
 import random  # for random line in txt file & random delay
 import time  # for delay
-
 import easygui  # mode selection
-from pynput.keyboard import Key, Controller
-
 keyboard = Controller()
 
 pressGoal = easygui.enterbox('Repeat Time')
@@ -51,7 +49,7 @@ elif mode == 'text':
 elif mode == 'in game L + text':
     for i in range(1, pressGoal):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
-        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在53，55行之间不加delay就不管用
+        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在51，53行之间不加delay就不管用
         keyboard.press(Key.enter)
         time.sleep(delay)
         keyboard.type(inGameChatButton)
