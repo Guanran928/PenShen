@@ -5,10 +5,9 @@ import time  # for delay
 import easygui  # mode selection
 from pynput.keyboard import Key, Controller
 
-# todo: replace easygui w/ tk & put goal and mode selection button in a single gui
-
 keyboard = Controller()
-pressGoal = easygui.enterbox("Repeat Time")
+
+pressGoal = easygui.enterbox('Repeat Time')
 
 try:
     if pressGoal is None:
@@ -16,10 +15,10 @@ try:
     else:
         pressGoal = int(pressGoal)  # 转换非'None'的值
 except ValueError:
-    easygui.msgbox("Please fucking enter a number u idiot")  # :D yes swearing is good
-mode = easygui.buttonbox('AutoL v2',
-                         'AutoL v2 mode selection',
-                         ['L + text', 'L', 'text', 'in game L + text', 'in game text', 'exit'])
+    easygui.msgbox('Please fucking enter a number u idiot')  # :D yes swearing is good
+
+mode = easygui.buttonbox('PenShen in Python', 'PenShen mode selection',
+                         ['L', 'L + text', 'text', 'in game L + text', 'in game text', 'exit'])
 if mode == 'exit':
     quit()
 
@@ -31,19 +30,19 @@ prefix = 'L'
 
 # waiting for user to enter the fucking wechat
 # todo: auto open wechat / other software
-time.sleep(5)
+time.sleep(2)
 
 # spammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-if mode == 'L + text':
-    for i in range(1, pressGoal):
-        keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
-        keyboard.press(Key.enter)
-        time.sleep(delay)
-elif mode == 'L':
+if mode == 'L':
     for i in range(1, pressGoal):
         keyboard.type(prefix)
         keyboard.press(Key.enter)
         time.sleep(delay)
+elif mode == 'L + text':
+    for i in range(1, pressGoal):
+        keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
+        keyboard.press(Key.enter)
+        time.sleep(delay)        
 elif mode == 'text':
     for i in range(1, pressGoal):
         keyboard.type(linecache.getline(r'800.txt', random.randrange(1, 800)))
@@ -52,7 +51,7 @@ elif mode == 'text':
 elif mode == 'in game L + text':
     for i in range(1, pressGoal):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
-        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在52，54行之间不加delay就不管用
+        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在53，55行之间不加delay就不管用
         keyboard.press(Key.enter)
         time.sleep(delay)
         keyboard.type(inGameChatButton)
