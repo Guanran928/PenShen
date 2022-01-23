@@ -67,7 +67,7 @@ elif mode == '游戏内 L (自动按说话按钮)':
 elif mode == '游戏内 L + 句子':
     for i in range(1, pressGoal):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
-        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在52，54行之间不加delay就不管用
+        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在69，71行之间不加delay就不管用
         keyboard.press(Key.enter)
         time.sleep(delay)
         keyboard.type(inGameChatButton)
