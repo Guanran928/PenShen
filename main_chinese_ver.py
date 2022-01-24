@@ -6,9 +6,6 @@ import random  # for random line in txt file & random delay
 import time  # for delay
 import easygui  # bcz i dont know how to use tkinter
 
-import os # for crash the computer lol
-# btw email spam n2805733637@outlook.com
-
 keyboard = Controller()
 initmode = ['前缀 + 句子', '句子', '游戏内前缀 + 句子 (自动按说话按钮)', '游戏内句子', 'spammer', 'spammer in game', 'exit']
 
