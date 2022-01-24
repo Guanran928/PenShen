@@ -7,7 +7,7 @@ import time  # for delay
 import easygui  # bcz i dont know how to use tkinter
 
 keyboard = Controller()
-initmode = ['前缀 + 句子', '句子', '游戏内前缀 + 句子 (自动按说话按钮)', '游戏内句子', 'spammer', 'spammer in game', 'exit']
+initmode = ['前缀 + 句子', '句子', '游戏内前缀 + 句子 (自动按说话按钮)', '游戏内句子', '刷屏', '游戏内刷屏', 'exit']
 
 while True:
     pressGoal = easygui.enterbox('输入的重复次数')
@@ -30,8 +30,8 @@ if mode == 'exit':
 
 if mode == '前缀 + 句子' or mode == '游戏内前缀 + 句子 (自动按说话按钮)': # does this work even
     prefix = easygui.enterbox('输入你想发送的前缀')
-if mode == 'spammer' or mode == 'spammer in game':
-    spam = easygui.enterbox('string')
+if mode == '刷屏' or mode == '游戏内刷屏':
+    spam = easygui.enterbox('输入句子')
 inGameChatButton = 't'
 
 # waiting for user to enter the fucking wechat
@@ -70,12 +70,12 @@ elif mode == '游戏内句子':
         time.sleep(delay)
         keyboard.type(inGameChatButton)
         time.sleep(delay)
-elif mode == 'spammer':
+elif mode == '刷屏':
     for i in range(1, pressGoal):
         keyboard.type(spam)
         keyboard.press(Key.enter)
         time.sleep(delay)
-elif mode == 'spammer in game':
+elif mode == '游戏内刷屏':
     for i in range(1, pressGoal):
         keyboard.type(spam)
         time.sleep(delay)
