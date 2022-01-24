@@ -6,4 +6,4 @@ But in Python
 
 闲的没事和@nongbaobao做的一个程序
 
-为什么用完pyinstaller我这个就变成vex程序了。。。
+为什么用完pyinstaller我这个就变成tex程序了。。。
