@@ -10,13 +10,13 @@ keyboard = Controller()
 initmode = ['前缀 + 句子', '句子', '游戏内前缀 + 句子 (自动按说话按钮)', '游戏内句子', '刷屏', '游戏内刷屏', 'exit']
 
 while True:
-    pressGoal = easygui.enterbox('输入的重复次数')
+    repeatTime = easygui.enterbox('输入的重复次数')
     try:
-        if pressGoal is None:
+        if repeatTime is None:
             easygui.msgbox('大傻逼宁怎么可以点cancel')  # L M A O
             quit()
         else:
-            pressGoal = int(pressGoal)  # 转换非'None'的值
+            repeatTime = int(repeatTime)  # 转换非'None'的值
             break
     except ValueError:
         easygui.msgbox('大傻逼请宁输一个整数')  # :D yes swearing is good
@@ -45,17 +45,17 @@ for i in range(t):
 # spammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 # e thats alot of elif :/
 if mode == '前缀 + 句子':
-    for i in range(1, pressGoal):
+    for i in range(1, repeatTime):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
         keyboard.press(Key.enter)
         time.sleep(delay)        
 elif mode == '句子':
-    for i in range(1, pressGoal):
+    for i in range(1, repeatTime):
         keyboard.type(linecache.getline(r'800.txt', random.randrange(1, 800)))
         keyboard.press(Key.enter)
         time.sleep(delay)
 elif mode == '游戏内前缀 + 句子 (自动按说话按钮)':
-    for i in range(1, pressGoal):
+    for i in range(1, repeatTime):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
         time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在上下行之间不加delay就不管用
         keyboard.press(Key.enter)
@@ -63,7 +63,7 @@ elif mode == '游戏内前缀 + 句子 (自动按说话按钮)':
         keyboard.type(inGameChatButton)
         time.sleep(delay)
 elif mode == '游戏内句子':
-    for i in range(1, pressGoal):
+    for i in range(1, repeatTime):
         keyboard.type(linecache.getline(r'800.txt', random.randrange(1, 800)))
         time.sleep(delay)
         keyboard.press(Key.enter)
@@ -71,12 +71,12 @@ elif mode == '游戏内句子':
         keyboard.type(inGameChatButton)
         time.sleep(delay)
 elif mode == '刷屏':
-    for i in range(1, pressGoal):
+    for i in range(1, repeatTime):
         keyboard.type(spam)
         keyboard.press(Key.enter)
         time.sleep(delay)
 elif mode == '游戏内刷屏':
-    for i in range(1, pressGoal):
+    for i in range(1, repeatTime):
         keyboard.type(spam)
         time.sleep(delay)
         keyboard.press(Key.enter) 
