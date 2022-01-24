@@ -13,9 +13,8 @@ while True:
     pressGoal = easygui.enterbox('输入的重复次数')
     try:
         if pressGoal is None:
-            while True:
-                easygui.msgbox('大傻逼宁怎么可以点cancel')  # L M A O
-            # quit()
+            easygui.msgbox('大傻逼宁怎么可以点cancel')  # L M A O
+            quit()
         else:
             pressGoal = int(pressGoal)  # 转换非'None'的值
             break
@@ -37,7 +36,11 @@ inGameChatButton = 't'
 
 # waiting for user to enter the fucking wechat
 # todo: auto open wechat / other software
-time.sleep(2)
+# why dont i just use time.sleep(2)
+t = 2
+for i in range(t):
+    print(str(t-i) +'\n')
+    time.sleep(1)
 
 # spammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 # e thats alot of elif :/
@@ -54,7 +57,7 @@ elif mode == '句子':
 elif mode == '游戏内前缀 + 句子 (自动按说话按钮)':
     for i in range(1, pressGoal):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
-        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在59，61行之间不加delay就不管用
+        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在上下行之间不加delay就不管用
         keyboard.press(Key.enter)
         time.sleep(delay)
         keyboard.type(inGameChatButton)
