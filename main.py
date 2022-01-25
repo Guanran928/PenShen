@@ -10,20 +10,21 @@ keyboard = Controller()
 initmode = ['PREFIX + TEXT', 'TEXT', 'IN GAME PREFIX + TEXT (AUTO PRESS CHAT BUTTON)', 'IN GAME TEXT', 'SPAMMER', 'IN GAME SPAMMER', 'EXIT']
 
 mode = easygui.buttonbox('PenShen in Python', 'PenShen Mode Selection', initmode)
-if mode == 'EXIT':
+if mode == 'EXIT' or mode is None:
+    easygui.msgbox('dont even try to click exit u motherfucker')  # L M A O
     quit()
-
 if mode == 'PREFIX + TEXT' or mode == 'IN GAME PREFIX + TEXT (AUTO PRESS CHAT BUTTON)': # does this work even
     prefix = easygui.enterbox('输入你想发送的前缀')
 if mode == 'SPAMMER' or mode == 'IN GAME SPAMMER':
     spam = easygui.enterbox('输入TEXT')
+    
 inGameChatButton = 't'
 
 while True:
     repeatTime = easygui.enterbox('Repeat time')
     try:
         if repeatTime is None:
-            easygui.msgbox('dont even try to click cancel u motherfucker')  # L M A O
+            easygui.msgbox('dont even try to click cancel u motherfucker')
             quit()
         else:
             repeatTime = int(repeatTime)  # 转换非'None'的值

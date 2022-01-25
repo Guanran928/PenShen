@@ -11,11 +11,13 @@ initmode = ['前缀 + 句子', '句子', '游戏内前缀 + 句子 (自动按说
 
 mode = easygui.buttonbox('模式选择', 'PenShen 模式选择', initmode)
 if mode == 'exit':
+    easygui.msgbox('你居然敢点exit？')
     quit()
 if mode == '前缀 + 句子' or mode == '游戏内前缀 + 句子 (自动按说话按钮)': # does this work even
     prefix = easygui.enterbox('输入你想发送的前缀')
 if mode == '刷屏' or mode == '游戏内刷屏':
     spam = easygui.enterbox('输入句子')
+
 inGameChatButton = 't'
 
 while True:
