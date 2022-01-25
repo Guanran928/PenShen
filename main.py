@@ -1,66 +1,85 @@
+# Made By Guanran928 & nongbaobao(herry-gitee)
+
+from pynput.keyboard import Key, Controller
 import linecache  # read txt file
 import random  # for random line in txt file & random delay
 import time  # for delay
-
-import easygui  # mode selection
-from pynput.keyboard import Key, Controller
+import easygui  # bcz i dont know how to use tkinter
 
 keyboard = Controller()
+initmode = ['PREFIX + TEXT', 'TEXT', 'IN GAME PREFIX + TEXT (AUTO PRESS CHAT BUTTON)', 'IN GAME TEXT', 'SPAMMER', 'IN GAME SPAMMER', 'EXIT']
 
-pressGoal = easygui.enterbox('Repeat Time')
-try:
-    if pressGoal is None:
-        quit()
-    else:
-        pressGoal = int(pressGoal)  # 转换非'None'的值
-except ValueError:
-    easygui.msgbox('Please fucking enter a number u idiot')  # :D yes swearing is good
+while True:
+    repeatTime = easygui.enterbox('输入的重复次数')
+    try:
+        if repeatTime is None:
+            easygui.msgbox('大傻逼宁怎么可以点cancel')  # L M A O
+            quit()
+        else:
+            repeatTime = int(repeatTime)  # 转换非'None'的值
+            break
+    except ValueError:
+        easygui.msgbox('大傻逼请宁输一个整数')  # :D yes swearing is good
 
-mode = easygui.buttonbox('PenShen in Python', 'PenShen mode selection',
-                         ['L', 'L + text', 'text', 'in game L + text', 'in game text', 'exit'])
-if mode == 'exit':
-    quit()
-if mode == 'L' or 'L + text' or 'in game L + text': # does this work even
-    prefix = easygui.enterbox('Enter Prefix Here')
-
-inGameChatButton = 't'
-delay = 0.5
+delay = float(easygui.enterbox('延迟(秒)'))
 # also you can use: delay = random.uniform(0.5, 1) to prevent BOT Detection
 
+mode = easygui.buttonbox('PenShen in Python', 'PenShen 模式选择', initmode)
+if mode == 'EXIT':
+    quit()
+
+if mode == 'PREFIX + TEXT' or mode == 'IN GAME PREFIX + TEXT (AUTO PRESS CHAT BUTTON)': # does this work even
+    prefix = easygui.enterbox('输入你想发送的前缀')
+if mode == 'SPAMMER' or mode == 'IN GAME SPAMMER':
+    spam = easygui.enterbox('输入TEXT')
+inGameChatButton = 't'
 
 # waiting for user to enter the fucking wechat
 # todo: auto open wechat / other software
-time.sleep(2)
+# why dont i just use time.sleep(2)
+t = 2
+for i in range(t):
+    print(str(t-i) +'\n')
+    time.sleep(1)
 
 # spammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-if mode == 'L':
-    for i in range(1, pressGoal):
-        keyboard.type(prefix)
-        keyboard.press(Key.enter)
-        time.sleep(delay)
-elif mode == 'L + text':
-    for i in range(1, pressGoal):
+# e thats alot of elif :/
+if mode == 'PREFIX + TEXT':
+    for i in range(1, repeatTime):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
         keyboard.press(Key.enter)
         time.sleep(delay)        
-elif mode == 'text':
-    for i in range(1, pressGoal):
+elif mode == 'TEXT':
+    for i in range(1, repeatTime):
         keyboard.type(linecache.getline(r'800.txt', random.randrange(1, 800)))
         keyboard.press(Key.enter)
         time.sleep(delay)
-elif mode == 'in game L + text':
-    for i in range(1, pressGoal):
+elif mode == 'IN GAME PREFIX + TEXT (AUTO PRESS CHAT BUTTON)':
+    for i in range(1, repeatTime):
         keyboard.type(prefix + ' ' + linecache.getline(r'800.txt', random.randrange(1, 800)))
-        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在52，54行之间不加delay就不管用
+        time.sleep(delay)  # 给minecraft弄的delay，不知道为什么，我在上下行之间不加delay就不管用
         keyboard.press(Key.enter)
         time.sleep(delay)
         keyboard.type(inGameChatButton)
         time.sleep(delay)
-elif mode == 'in game text':
-    for i in range(1, pressGoal):
+elif mode == 'IN GAME TEXT':
+    for i in range(1, repeatTime):
         keyboard.type(linecache.getline(r'800.txt', random.randrange(1, 800)))
         time.sleep(delay)
         keyboard.press(Key.enter)
+        time.sleep(delay)
+        keyboard.type(inGameChatButton)
+        time.sleep(delay)
+elif mode == 'SPAMMER':
+    for i in range(1, repeatTime):
+        keyboard.type(spam)
+        keyboard.press(Key.enter)
+        time.sleep(delay)
+elif mode == 'IN GAME SPAMMER':
+    for i in range(1, repeatTime):
+        keyboard.type(spam)
+        time.sleep(delay)
+        keyboard.press(Key.enter) 
         time.sleep(delay)
         keyboard.type(inGameChatButton)
         time.sleep(delay)
