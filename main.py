@@ -1,5 +1,5 @@
 # Made By Guanran928 & nongbaobao(herry-gitee)
-
+# fuck u
 from pynput.keyboard import Key, Controller
 import linecache  # read txt file
 import random  # for random line in txt file & random delay
@@ -9,22 +9,7 @@ import easygui  # bcz i dont know how to use tkinter
 keyboard = Controller()
 initmode = ['PREFIX + TEXT', 'TEXT', 'IN GAME PREFIX + TEXT (AUTO PRESS CHAT BUTTON)', 'IN GAME TEXT', 'SPAMMER', 'IN GAME SPAMMER', 'EXIT']
 
-while True:
-    repeatTime = easygui.enterbox('输入的重复次数')
-    try:
-        if repeatTime is None:
-            easygui.msgbox('大傻逼宁怎么可以点cancel')  # L M A O
-            quit()
-        else:
-            repeatTime = int(repeatTime)  # 转换非'None'的值
-            break
-    except ValueError:
-        easygui.msgbox('大傻逼请宁输一个整数')  # :D yes swearing is good
-
-delay = float(easygui.enterbox('延迟(秒)'))
-# also you can use: delay = random.uniform(0.5, 1) to prevent BOT Detection
-
-mode = easygui.buttonbox('PenShen in Python', 'PenShen 模式选择', initmode)
+mode = easygui.buttonbox('PenShen in Python', 'PenShen Mode Selection', initmode)
 if mode == 'EXIT':
     quit()
 
@@ -34,13 +19,35 @@ if mode == 'SPAMMER' or mode == 'IN GAME SPAMMER':
     spam = easygui.enterbox('输入TEXT')
 inGameChatButton = 't'
 
+while True:
+    repeatTime = easygui.enterbox('Repeat time')
+    try:
+        if repeatTime is None:
+            easygui.msgbox('dont even try to click cancel u motherfucker')  # L M A O
+            quit()
+        else:
+            repeatTime = int(repeatTime)  # 转换非'None'的值
+            break
+    except ValueError:
+        easygui.msgbox('can u even enter a fucking number')  # :D yes swearing is good
+
+while True:  # yes copy & paste
+    delay = easygui.enterbox('Delay (sec)')
+    try:
+        if repeatTime is None:
+            easygui.msgbox('dont even try to click cancel u motherfucker')
+            quit()
+        else:
+            delay = float(delay)
+            break
+    except ValueError:
+        easygui.msgbox('can u even enter a fucking number')
+
+# also you can use: delay = random.uniform(0.5, 1) to prevent BOT Detection
+
 # waiting for user to enter the fucking wechat
 # todo: auto open wechat / other software
-# why dont i just use time.sleep(2)
-t = 2
-for i in range(t):
-    print(str(t-i) +'\n')
-    time.sleep(1)
+time.sleep(2)
 
 # spammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 # e thats alot of elif :/
