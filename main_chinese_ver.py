@@ -1,7 +1,5 @@
 # Made By Guanran928 & nongbaobao(herry-gitee)
 # :D
-from tkinter.messagebox import YES
-import types
 from pynput.keyboard import Key, Controller
 import linecache  # read txt file
 import random  # for random line in txt file & random delay
