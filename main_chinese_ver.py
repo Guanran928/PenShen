@@ -9,10 +9,14 @@ import easygui  # bcz i dont know how to use tkinter
 keyboard = Controller()
 initmode = ['前缀 + 句子', '句子', '游戏内前缀 + 句子 (自动按说话按钮)', '游戏内句子', '刷屏', '游戏内刷屏', 'exit']
 
-mode = easygui.buttonbox('模式选择', 'PenShen 模式选择', initmode)
-if mode == 'exit':
-    easygui.msgbox('你居然敢点exit？')
+
+def cancel():
+    easygui.msgbox('大傻逼宁怎么可以点cancel')  # L M A O
     quit()
+
+mode = easygui.buttonbox('模式选择', 'PenShen 模式选择', initmode)
+if mode == 'exit' or mode == 'None':
+    cancel
 if mode == '前缀 + 句子' or mode == '游戏内前缀 + 句子 (自动按说话按钮)': # does this work even
     prefix = easygui.enterbox('输入你想发送的前缀')
 if mode == '刷屏' or mode == '游戏内刷屏':
@@ -24,8 +28,7 @@ while True:
     repeatTime = easygui.enterbox('输入的重复次数')
     try:
         if repeatTime is None:
-            easygui.msgbox('大傻逼宁怎么可以点cancel')  # L M A O
-            quit()
+            cancel
         else:
             repeatTime = int(repeatTime)  # 转换非'None'的值
             break
@@ -36,8 +39,7 @@ while True:  # yes copy & paste
     delay = easygui.enterbox('延迟(秒)')
     try:
         if repeatTime is None:
-            easygui.msgbox('大傻逼宁怎么可以点cancel')
-            quit()
+            cancel
         else:
             delay = float(delay)
             break
