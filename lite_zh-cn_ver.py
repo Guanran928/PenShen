@@ -68,14 +68,14 @@ def spam_loop(spam_type, if_ingame):
             eval(spam_type)
             keyboard.press(Key.enter)
             time.sleep(delay)
-        else:
-            for i in range(repeatTime):
-                eval(spam_type)
-                time.sleep(delay)
-                keyboard.press(Key.enter)
-                time.sleep(delay)
-                keyboard.type(inGameChatButton)
-                time.sleep(delay)
+    else:
+        for i in range(repeatTime):
+            eval(spam_type)
+            time.sleep(delay)
+            keyboard.press(Key.enter)
+            time.sleep(delay)
+            keyboard.type(inGameChatButton)
+            time.sleep(delay)
     print('spamming ended')
 
 
