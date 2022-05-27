@@ -22,12 +22,10 @@ def fuck_user(question, fuck1, fuck2, reform_str, ifInit = False, initValue = ''
                 if ifInit == True:
                     return initValue
             else:
-                exec(reform_str)
-                break
+                print(fuck_var)
+                return eval(reform_str)
         except ValueError:
             exec(fuck2)  # :D yes shitcode
-    return eval(reform_str)
-
 
 mode = input(initmode)
 if mode not in initmode:
@@ -54,6 +52,8 @@ inGameChatButton = 't'
 repeatTime = fuck_user('输入你想发送的重复次数: ', 'print(\'大傻逼请宁输一个数\')', 'print(\'大傻逼请宁输一个整数\')', 'int(fuck_var)')
 delay = fuck_user('延迟(秒, Buggy, 默认0.5s): ', 'print(\'0.5\')', 'print(\'大傻逼请宁输一个整数\')', 'float(fuck_var)', True, 0.5)
 # also you can use: delay = random.uniform(0.5, 1) to prevent BOT Detection
+
+repeatTime+=1
 
 # waiting for user to enter the fucking wechat
 time.sleep(2)
@@ -92,7 +92,7 @@ elif mode == initmode[3]:
     spam_loop('keyboard.type(linecache.getline(r\'800.txt\', random.randrange(1, 800)))', True)
 
 elif mode == initmode[4]:
-    spam_loop(keyboard.type(spam), False)
+    spam_loop('keyboard.type(spam)', False)
 
 elif mode == initmode[5]:
-    spam_loop(keyboard.type(spam), True)
+    spam_loop('keyboard.type(spam)', True)
